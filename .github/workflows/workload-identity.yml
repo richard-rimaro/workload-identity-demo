@@ -19,7 +19,7 @@ jobs:
       uses: azure/login@v2
       with:
         client-id: 31a7b9b9-8b2f-452a-a798-2132546417db
-        tenant-id: 99f4af6e-68bd-4cb1-ae18-8abf6b877da3
+        tenant-id: 994faaf8-6b8d-4cb1-ae18-8abf6b877da3
         subscription-id: a467f55b-ddb4-4527-8100-f1f11e051f4a
 
     - name: Install Python dependencies

@@ -1,0 +1,30 @@
+name: Workload Identity Demo
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  run-demo:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Login to Azure using Workload Identity
+      uses: azure/login@v2
+      with:
+        client-id: 31a7b9b9-8b2f-452a-a798-2132546417db
+        tenant-id: 99f4af6e-68bd-4cb1-ae18-8abf6b877da3
+        subscription-id: a467f55b-ddb4-4527-8100-f1f11e051f4a
+
+    - name: Install Python dependencies
+      run: |
+        pip install azure-identity azure-mgmt-resource msgraph-core
+
+    - name: Run demo
+      run: python demo.py
